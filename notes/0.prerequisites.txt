@@ -1,0 +1,4 @@
+1. Install Go.
+2. Setup GOPATH.
+3. Run `go build` in ex1-basics and see if it works.
+4. Install GoLand (https://www.jetbrains.com/go/) or an IDE of your choice.
