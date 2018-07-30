@@ -1,0 +1,81 @@
+---
+Things not covered, but very useful.
+---
+
+Embedding (https://golang.org/doc/effective_go.html#embedding)
+Logging (https://github.com/sirupsen/logrus)
+Metrics (check https://github.com/rcrowley/go-metrics, https://github.com/fabiolb/fabio/tree/master/metrics)
+Command-line interface handling (e.g. https://github.com/spf13/cobra)
+Configuration (e.g. https://github.com/spf13/viper)
+Compilation, dynamic dispatch, garbage collection, etc. (
+    https://github.com/teh-cmc/go-internals,
+    https://blog.altoros.com/golang-part-1-main-concepts-and-project-structure.html
+)
+
+---
+Useful links.
+---
+
+https://golang.org/ref/spec -- Really, this is a marvel, you can read the Spec. It's full of useful explanations and examples.
+https://golang.org/doc/effective_go.html
+https://github.com/cristaloleg/go-advices (My teammate's list)
+https://segment.com/blog/allocation-efficiency-in-high-performance-go-services (pointers vs values, escape analysis, efficiency).
+http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+https://dave.cheney.net/2014/06/07/five-things-that-make-go-fast
+
+---
+Books.
+---
+
+“The Go Programming Language” Donovan & Kernighan
+
+---
+Go programming practice.
+---
+
+https://peter.bourgon.org/go-best-practices-2016/
+https://peter.bourgon.org/blog/2017/06/09/theory-of-modern-go.html
+https://peter.bourgon.org/go-for-industrial-programming/
+https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1
+
+---
+Advanced slices and maps materials.
+---
+
+https://blog.golang.org/slices
+https://blog.golang.org/go-slices-usage-and-internals
+https://dave.cheney.net/2018/07/12/slices-from-the-ground-up
+https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics
+
+---
+Advanced testing.
+---
+
+http://cs-guy.com/blog/2015/01/test-main/
+
+---
+Profiling & debugging.
+---
+
+https://golang.org/doc/diagnostics.html
+https://blog.golang.org/profiling-go-programs
+https://dave.cheney.net/2014/07/11/visualising-the-go-garbage-collector
+
+---
+Go's Assembler.
+---
+
+https://golang.org/doc/asm
+
+---
+Memory model.
+---
+
+https://golang.org/ref/mem
+
+---
+Functional style.
+---
+
+Interesting piece of code:
+https://golang.org/doc/codewalk/functions/
