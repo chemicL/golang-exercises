@@ -1,0 +1,49 @@
+Just some basic info before we start. Use this file for reference at any point in the course.
+
+---
+Go version
+---
+
+In this course we're using Go 1.10.
+
+---
+Go's basic types:
+---
+
+bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // alias for uint8
+
+rune // alias for int32
+     // represents a Unicode code point
+
+float32 float64
+
+complex64 complex128
+
+---
+Comparable types:
+---
+
+Most Go's types can be compared using == and != operators, excluding function values, slices and maps.
+This information will be useful when discussing map keys, which need to be comparable.
+
+https://golang.org/ref/spec#Comparison_operators
+
+---
+Go commands
+---
+
+go build - build project in place
+go install - build and install in GOPATH
+go get - fetch project to GOPATH
+go fmt - format source code
+goimports - organize imports, add missing ones, remove unnecessary, order
+go vet - examines code and reports suspicious constructs
+gometalinter (github.com/alecthomas/gometalinter) - aggregator of linters and static analysis tools
+dep (https://github.com/golang/dep)

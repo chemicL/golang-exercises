@@ -1,0 +1,5 @@
+1. Install Go: https://golang.org/doc/install
+2. Setup your workspace: https://golang.org/doc/code.html#Organization.
+3. Setup GOPATH: https://golang.org/doc/code.html#GOPATH
+4. Run `go build` in exercises/ex1-basics and see if it works.
+5. Install GoLand (https://www.jetbrains.com/go/) or an IDE of your choice.
