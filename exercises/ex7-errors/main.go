@@ -8,9 +8,11 @@ import (
 )
 
 func main() {
-	//regularErrors()
+	regularErrors()
 
-	errorsPkgWay()
+	//errorsPkgWay()
+
+	//scanWithPkgErrors()
 }
 
 func regularErrors() {
@@ -56,7 +58,7 @@ func errorsPkgWay() {
 	number := -1
 	squared, err := sqrtWithPkgErrors(number)
 	if err != nil {
-		log.Fatalf("couldn't square number: %+v", err)
+		log.Fatalf("couldn't square number: %+v", err) // %+v to print stack trace together with message
 	}
 	fmt.Println(fmt.Sprintf("sqrt(%d) = %f", number, squared))
 }
@@ -69,3 +71,23 @@ func sqrtWithPkgErrors(number int) (float64, error) {
 	return math.Sqrt(float64(number)), nil
 }
 
+func scanWithPkgErrors() {
+	var hello, world string
+
+	if _, err := scanStrings(&hello, &world); err != nil {
+		fmt.Println(fmt.Sprintf("Got error: %+v", err))
+	}
+}
+
+func scanStrings(a, b *string) (int, error) {
+	n, err := fmt.Sscan("Hello ", a, b)
+
+	fmt.Println(fmt.Sprintf("Read %d tokens.", n))
+
+	if err != nil {
+		// call Wrap or Wrapf when dealing with library-provided error.
+		return n, errors.Wrap(err, "")
+	}
+
+	return n, nil
+}

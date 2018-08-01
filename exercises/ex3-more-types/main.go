@@ -146,6 +146,12 @@ func moreOnSlices() {
 func dynamicArraysUsingSlices() {
 	p.Header("Dynamic arrays.")
 
+	// We create a slice with given length or length and capacity using built-in make function:
+	// https://golang.org/pkg/builtin/#make
+
+	// Note on builtin - it's not a real package, it's a namespace for language's special identifiers.
+	// E.g. make for slices can take three arguments, but the Godoc signature only shows one.
+
 	uncapped := make([]int, 3) // 3 element underlying array
 	p.SliceInfo(uncapped)
 
@@ -160,6 +166,7 @@ func dynamicArraysUsingSlices() {
 func maps() {
 	p.Header("Maps.")
 
+	// Maps have keys which can be compared using ==
 	// Declare variable for a mapping of string to string
 	var m map[string]string // nil is the zero value
 
@@ -167,6 +174,7 @@ func maps() {
 
 	//m["Key"] = "Value" // won't work
 
+	// We also use make to initialize a map
 	m = make(map[string]string) // initialized map
 
 	m["Key"] = "Value"

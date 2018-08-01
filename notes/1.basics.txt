@@ -2,7 +2,13 @@ The printing to stdout is performed using fmt package. Check the formatting dire
 https://golang.org/pkg/fmt/
 
 
+---
+Go version
+---
+
+---
 Go's basic types:
+---
 
 bool
 
@@ -19,3 +25,29 @@ rune // alias for int32
 float32 float64
 
 complex64 complex128
+
+---
+Comparable types:
+---
+
+Most Go's types can be compared using == and != operators, excluding function values, slices and maps.
+This information will be useful when discussing map keys, which need to be comparable.
+
+https://golang.org/ref/spec#Comparison_operators
+
+---
+Go commands
+---
+
+go for building, etc.
+fmt for formatting the codebase.
+
+
+---
+Production-level features
+---
+
+building and dependencies
+structured logging
+metrics
+?
