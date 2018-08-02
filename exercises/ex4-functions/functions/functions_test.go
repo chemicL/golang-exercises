@@ -1,10 +1,12 @@
-package functions
+// Files with _test.go suffix will not be built by regular `go build`, only during `go test`.
+// This also applies to folders named testdata.
+package functions_test
 
 import (
 	// Testing package used for obvious reasons
 	"testing"
-	"github.com/chemicL/golang-exercises/exercises/ex4-functions"
 	"math"
+	"github.com/chemicL/golang-exercises/exercises/ex4-functions/functions"
 )
 
 // Test definition for Add function with one sample
