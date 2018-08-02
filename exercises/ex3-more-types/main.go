@@ -92,6 +92,16 @@ func arrays() {
 
 	heroes := [2]string{"Frodo", "Sam"}
 	fmt.Println(heroes)
+
+	// Iterate over an array - note that we get only the index.
+	for i := range heroes {
+		fmt.Println(i, heroes[i])
+	}
+
+	// Iterate over an array with index and value. We could ignore the index using _ identifier.
+	for i, hero := range heroes {
+		fmt.Println(i, hero)
+	}
 }
 
 func slices() {
@@ -196,7 +206,8 @@ func maps() {
 		"Tunisia": "Tunis",
 	}
 
-	toVisit := make(map[string]string)
+	// Allocate a 3 element map. It can still grow, but it won't use the default size in the beginning.
+	toVisit := make(map[string]string, 3)
 
 	fmt.Println(fmt.Sprintf("The entire map: %+v.", visited))
 
@@ -206,6 +217,7 @@ func maps() {
 		fmt.Errorf("capital city of Poland is not Warsaw?! Got %s", capitalOfPoland)
 	}
 
+	// Iterate over the map (order is not specified) using both key and value.
 	for key, value := range visited {
 		fmt.Println(fmt.Sprintf("The capital of %s is %s.", key, value))
 	}
@@ -218,6 +230,12 @@ func maps() {
 	delete(visited, "Tunisia")
 	toVisit["Tunisia"] = "Tunis"
 
+	// Iterate over the keys of the map.
+	for country := range toVisit {
+		fmt.Println("Will visit the capital of", country)
+	}
+
+	// Quick implementation of a concept known as map.values().
 	var capitalsToVisit []string
 	for _, city := range toVisit {
 		capitalsToVisit = append(capitalsToVisit, city)

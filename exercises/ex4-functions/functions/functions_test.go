@@ -1,4 +1,4 @@
-package functions_test
+package functions
 
 import (
 	// Testing package used for obvious reasons

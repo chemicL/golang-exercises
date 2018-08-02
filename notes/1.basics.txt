@@ -39,7 +39,7 @@ https://golang.org/ref/spec#Comparison_operators
 Go commands
 ---
 
-go for building, etc.
+go for building, etc. (gofmt, golint, go vet)
 fmt for formatting the codebase.
 
 

@@ -23,20 +23,25 @@ func regularErrors() {
 
 	// Idiomatic error handling check. First - check if something bad happened. Then handle it.
 	if e != nil {
-		log.Fatalf("got some problem: %+v", e)
+		// We can also check the error type.
+		if squaringError, ok := e.(SquaringError); ok {
+			log.Fatalf("got squaring error (%T): %+v", squaringError, squaringError)
+		}
+
+		log.Fatalf("got some problem (%T): %+v", e, e)
 	}
 
 	// Otherwise, continue processing with the assumption that everything is ok.
 	fmt.Println(fmt.Sprintf("sqrt(%d) = %f", number, squared))
 }
 
-// error is in fact an interface. Therefore, we must define something that satisfies the interface.
+// error is in fact an interface. Therefore, we can define something that satisfies the interface.
 type SquaringError struct {
 	Msg string
 }
 
 // Method Error returning a string is what we must define.
-func (e *SquaringError) Error() string {
+func (e SquaringError) Error() string {
 	return e.Msg
 }
 
@@ -47,7 +52,8 @@ func sqrt(number int) (float64, error) {
 		// Return zero-value for the domain return value and a filled-in error.
 		// Should we log something here?
 		// The Go way is - handle errors once. That means - either log it, handle and act accordingly, or return without action.
-		return 0, &SquaringError{"provided negative number"}
+		return 0, SquaringError{"provided negative number"}
+		//return 0, fmt.Errorf("provided negative number") // Defining our own type is not necessary, sometimes it's enough to create error on the spot.
 	}
 	// Return domain value and a nil error, which means the result is usable.
 	return math.Sqrt(float64(number)), nil

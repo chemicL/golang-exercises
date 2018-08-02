@@ -7,6 +7,7 @@ func SliceInfo(s []int) {
 }
 
 func Header(msg string) {
+	fmt.Println()
 	fmt.Println("----------------------------------------")
 	fmt.Println(msg)
 	fmt.Println("----------------------------------------")

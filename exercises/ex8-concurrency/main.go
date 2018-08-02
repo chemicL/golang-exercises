@@ -12,7 +12,7 @@ const WaitToFinish = true
 
 func main() {
 
-	launchGoroutine(WaitToFinish)
+	//launchGoroutine(WaitToFinish)
 
 	//channels()
 
@@ -22,7 +22,9 @@ func main() {
 
 	//sequences()
 
-	//multiplexing()
+	multiplexing()
+
+	multiplexingWithBufferedChannels()
 
 	//synchronizedAccess()
 }
@@ -183,6 +185,24 @@ func multiplexing() {
 
 	go generateEvenNumbersUntilClosed(numbers, shutdown)
 
+	fmt.Println(<-numbers)
+	fmt.Println(<-numbers)
+
+	shutdown <- true
+
+	time.Sleep(2 * time.Second)
+}
+
+func multiplexingWithBufferedChannels() {
+	shutdown := make(chan bool)
+	numbers := make(chan uint, 100) // Allow to generate 100 numbers ready to be processed.
+
+	// Uncomment the default case in select to observe difference between buffered and unbuffered channels.
+	go generateEvenNumbersUntilClosed(numbers, shutdown)
+
+	// The numbers channel is buffered, so the generator doesn't need to wait for the receiver to read the next number.
+	// It will fill the buffer and only then jump to the default case in select statement.
+	// When we start consuming, it can produce the next numbers.
 	fmt.Println(<-numbers)
 	fmt.Println(<-numbers)
 

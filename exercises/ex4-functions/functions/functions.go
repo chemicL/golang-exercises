@@ -3,17 +3,8 @@ package functions
 import (
 	"strings"
 	"time"
-	"fmt"
 	"strconv"
-	"github.com/chemicL/golang-exercises/present"
 )
-
-func main() {
-	present.Header("Tests")
-	fmt.Println("Check and run tests defined in functions_test.go instead of running this example.")
-
-	present.Header(fmt.Sprintf("Btw, the time is: %s", WhatTimeIsIt()))
-}
 
 // Define function Add
 func Add(a, b int) int {
@@ -50,11 +41,20 @@ func WhatTimeIsIt() string {
 		return "It's late, go to bed!"
 	}
 
-	return ""
+	return "Time to enjoy the day!"
 }
 
 // Function values as arguments to a function. They can also be stored in variables, like any value.
 func PerformMathOperation(a, b int, fn func(int, int) int) string {
+	result := fn(a, b)
+	return strconv.Itoa(result)
+}
+
+// We can also define a type for our function.
+type MyFunc func(int, int) int
+
+// And use it making the signature a lot more readable.
+func EasierPerformMathOperation(a, b int, fn MyFunc) string {
 	result := fn(a, b)
 	return strconv.Itoa(result)
 }
