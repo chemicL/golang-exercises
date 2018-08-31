@@ -46,11 +46,13 @@ func multByTwo(s []int) {
 
 func sliceAppends() {
 	p.Header("Basic append.")
-	a := []int {1, 2, 3} // Note Go allocates a slice with capacity=10
+	a := []int {1, 2, 3}
 	p.SliceInfo(a)
 
-	// Append single item to a.
+	// Append two items to a.
 	a = append(a, 6)
+	p.SliceInfo(a)
+	a = append(a, 7)
 	p.SliceInfo(a)
 
 	// Why assign? From the documentation of append:
@@ -74,7 +76,7 @@ func sliceAppends() {
 	a = append(a, 3)
 	p.SliceInfo(a)
 
-	b := a[:1] // [1] with len = 1 cap = 3
+	b := a[:1] // [1] with len = 1 cap = 4
 	p.SliceInfo(b)
 
 	c := append(b, 100) // Append in place of 2, b's len and cap don't change!
@@ -97,6 +99,11 @@ func sliceAppends() {
 
 	z := append(y, 100) // Append to y causes creating a new underlying array.
 	p.SliceInfo(x)
+
+	// Let's print the addresses:
+	fmt.Printf("%p\n", z)
+	fmt.Printf("%p\n", y)
+
 	p.SliceInfo(y)
 	p.SliceInfo(z)
 

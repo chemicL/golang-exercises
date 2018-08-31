@@ -142,6 +142,8 @@ func moreOnSlices() {
 	p.SliceInfo(s)
 
 	// Drop its first two values.
+	// What happens to the first two items? Will they get GC'd?
+	// No - unless you append to the slice and a new array is allocated.
 	s = s[2:]
 	p.SliceInfo(s)
 
@@ -169,8 +171,9 @@ func dynamicArraysUsingSlices() {
 	capped := make([]int, 0, 5) // 0 length with capacity of 5
 	p.SliceInfo(capped)
 
-	//p.SliceInfo(capped[3:])
-	//p.SliceInfo(capped[3:5])
+	// p.SliceInfo(capped[3:]) // [3:len(slice)] == [3:0]
+	// p.SliceInfo(capped[3:4]) ?
+	// p.SliceInfo(capped[3:3]) ?
 
 }
 

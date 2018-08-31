@@ -28,6 +28,7 @@ func simpleControlFlow() {
 	for i := 1; i < 10; i++ {
 		sum += i
 	}
+
 	fmt.Println(fmt.Sprintf("Sum of numbers 1 to 9 is %d", sum))
 
 	// ----------------------------------------
@@ -51,7 +52,7 @@ func simpleControlFlow() {
 	// ----------------------------------------
 	// If statement.
 	// ----------------------------------------
-	
+
 	if count > sum { // { } Braces always required
 		fmt.Println("Oh. Something is completely wrong. 10 is less than the sum of numbers 0..10")
 		os.Exit(1)

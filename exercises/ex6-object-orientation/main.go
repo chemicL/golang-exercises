@@ -8,16 +8,20 @@ import (
 func main() {
 	// Define instance of a struct
 	action := ShutdownAction{3} // Should it be pointer type? Come back here when asked to and add &.
+	//action := ShutdownActionWithText{LastWords: "Byee!"} // Should it be pointer type? Come back here when asked to and add &.
 
 	// Call a method on the struct. Soon it will become clear how this is possible.
 	action.NoDelay() // This is the same as (&action).NoDelay().
 
 	// Perform some action. We'll explain step by step how we got here. Read on (this file, top-to-bottom).
-	perform(nil)
+	//var a1 *PrintAction = nil
+
+
+	//perform(a1)
 	perform(action)
 
-	nilReceivers()
-	emptyInterface()
+	//nilReceivers()
+	//emptyInterface()
 }
 
 // Let's define two *Action types.
@@ -27,6 +31,11 @@ type PrintAction struct {
 
 type ShutdownAction struct {
 	delaySeconds int
+}
+
+type ShutdownActionWithText struct {
+	ShutdownAction
+	LastWords string
 }
 
 // This is a method definition. The receiver argument is specified before function name.
@@ -92,6 +101,8 @@ func perform(action Action) {
 	} else {
 		fmt.Println(fmt.Sprintf("Can't describe given action: %T", action))
 	}
+
+	fmt.Printf("Pointer to action: %p\n", action)
 
 	// Check nullness
 	if action == nil {

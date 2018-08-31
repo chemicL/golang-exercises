@@ -81,7 +81,11 @@ func scanWithPkgErrors() {
 	var hello, world string
 
 	if _, err := scanStrings(&hello, &world); err != nil {
-		fmt.Println(fmt.Sprintf("Got error: %+v", err))
+
+		// Add message to the error
+		err2 := errors.WithMessage(err,"handling error")
+
+		fmt.Println(fmt.Sprintf("Got error: %+v", err2))
 	}
 }
 
@@ -92,7 +96,7 @@ func scanStrings(a, b *string) (int, error) {
 
 	if err != nil {
 		// call Wrap or Wrapf when dealing with library-provided error.
-		return n, errors.Wrap(err, "")
+		return n, errors.Wrap(err, "scanning failed")
 	}
 
 	return n, nil

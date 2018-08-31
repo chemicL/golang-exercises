@@ -13,7 +13,7 @@ const WaitToFinish = true
 
 func main() {
 
-	//launchGoroutine(WaitToFinish)
+	launchGoroutine(!WaitToFinish)
 
 	//channels()
 
@@ -23,13 +23,13 @@ func main() {
 
 	//sequences()
 
-	multiplexing()
+	//multiplexing()
 
-	multiplexingWithBufferedChannels()
+	//multiplexingWithBufferedChannels()
 
 	//synchronizedAccess()
 
-	goroutinesAndContext()
+	//goroutinesAndContext()
 }
 
 func launchGoroutine(waitSomeTime bool) {
@@ -235,6 +235,9 @@ func count(counter Counter) {
 	if value := counter.Get(); value != 1000 {
 		fmt.Println("")
 		fmt.Println(fmt.Sprintf("Oh my gosh. Got %d from %T", value, counter))
+		return
+	} else {
+		fmt.Println(fmt.Sprintf("Ok. Works. Got %d from %T", value, counter))
 	}
 }
 
